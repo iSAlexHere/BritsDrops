@@ -211,6 +211,7 @@ body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'Barlow
 .detail-panel{
   border-radius:4px;padding:20px 24px;margin-bottom:24px;animation:fadeIn .25s ease;
   border:1px solid;position:relative;overflow:hidden;background:var(--surface)!important;
+  scroll-margin-top:200px;
 }
 .detail-panel::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -567,7 +568,7 @@ function render(){
     const delay=Math.min(idx*0.015,0.4);
     return`<div class="item-card${isSel?" selected":""}" style="border-left-color:${c.border};${isSel?`background:var(--surface2);border-color:${c.border}`:""}animation-delay:${delay}s;--cat-border:${c.border}" data-name="${item.name}"><div class="item-card-inner"><div class="item-info"><div class="item-cat" style="color:${c.accent}">${item.category}</div><div class="item-name">${item.name}</div></div><div class="item-count" style="background:${c.bg};border-color:${c.border}60"><div class="item-count-num" style="color:${c.accent}">${lc}</div><div class="item-count-label">drops</div></div></div><div class="item-locs">${locs}${more}</div></div>`;
   }).join("");
-  grid.querySelectorAll(".item-card").forEach(card=>{card.addEventListener("click",()=>{const name=card.dataset.name;S.selected=S.selected===name?null:name;render();if(S.selected)document.getElementById("detailPanel").scrollIntoView({behavior:"smooth",block:"start"})})});
+  grid.querySelectorAll(".item-card").forEach(card=>{card.addEventListener("click",()=>{const name=card.dataset.name;S.selected=S.selected===name?null:name;render();if(S.selected){const dp=document.getElementById("detailPanel");const headerH=document.querySelector(".header").offsetHeight;const dpTop=dp.getBoundingClientRect().top+window.scrollY-headerH-12;window.scrollTo({top:dpTop,behavior:"smooth"})}})});
 }
 
 document.getElementById("searchInput").addEventListener("input",e=>{S.search=e.target.value;renderFilters();render()});

@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://isalexhere.github.io/brits-world-loot-table/">🌐 Live Site</a>
+  <a href="https://isalexhere.github.io/brits-world-loot-table.html">🌐 Live Site</a>
 </p>
 
 ---
@@ -45,7 +45,7 @@ This is a **single `index.html` file** — no build process, no dependencies.
 1. Fork or clone this repository
 2. Go to **Settings → Pages**
 3. Set source to `main` branch, root folder
-4. Your site will be live at `https://your-username.github.io/brits-world-loot-table/`
+4. Your site will be live at `[https://your-username.github.io/brits-world-loot-table/](https://isalexhere.github.io/brits-world-loot-table.html)`
 
 ### Manual
 Just open `index.html` in any browser. That's it.
